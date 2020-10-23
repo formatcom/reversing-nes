@@ -1,8 +1,9 @@
 ## References
 
 ## Requirements
-	- python 2/3
+	- make
 	- sdl2
+	- python 2/3
 
 ## Build
 ~~~
