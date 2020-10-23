@@ -8,5 +8,6 @@ config DISPLAY_SCALE
 
 endmenu
 
+source "console/Kconfig"
 source "nes/Kconfig"
 

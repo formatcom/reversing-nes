@@ -1,12 +1,16 @@
+#include <string.h>
 #include <SDL2/SDL.h>
+#include "console/console.h"
 #include "auto/config.h"
 
 
 int main(void)
 {
+	if (CON_enable() == -1) return 1;
+
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER))
 	{
-		return 1;
+		return 2;
 	}
 
 	SDL_Window   * window;
@@ -20,11 +24,31 @@ int main(void)
 				256*CONFIG_DISPLAY_SCALE, 240*CONFIG_DISPLAY_SCALE,
 				SDL_WINDOW_OPENGL, &window, &renderer))
 	{
-		return 2;
+		return 3;
 	}
+
+	SDL_SetWindowPosition(window, 0, 0);
+
+	CON_clean();
+
+	char * buf;
 
 	while(1)
 	{
+
+		CON_update();
+
+		buf = CON_capture();
+
+		if (buf)
+		{
+			if (strncmp(buf, "exit", 4) == 0)
+			{
+				printf("bye\n\r");
+				break;
+			}
+		}
+
 		if (event.type == SDL_QUIT) {
 			break;
 		}
@@ -35,6 +59,7 @@ int main(void)
 			if (event.type == SDL_QUIT) {
 				break;
 			}
+
 		}
 
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
@@ -45,6 +70,9 @@ int main(void)
 		SDL_RenderPresent(renderer);
 
 	}
+
+
+	CON_disable();
 
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);

@@ -1,6 +1,7 @@
 ## References
 
 ## Requirements
+	- gcc
 	- make
 	- sdl2
 	- python 2/3

@@ -1,0 +1,8 @@
+menu "Console Configuration"
+
+config CONSOLE_BUFFER_LEN
+	int "Buffer size for the command input"
+	default 100
+	range    16  256
+
+endmenu
