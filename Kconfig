@@ -1,0 +1,12 @@
+mainmenu "Reversing Nes configuration"
+
+menu "Gui"
+
+config DISPLAY_SCALE
+	int "Scale display"
+	default 3
+
+endmenu
+
+source "nes/Kconfig"
+

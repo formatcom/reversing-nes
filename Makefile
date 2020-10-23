@@ -1,11 +1,15 @@
 NAME := reversing-nes
 
-BIN := build/bin
-OBJ := build/obj
+OUT := build
+BIN := $(OUT)/bin
+OBJ := $(OUT)/obj
+
+KCONFIG_AUTOHEADER := $(OUT)/auto/config.h
+export KCONFIG_AUTOHEADER
 
 CC := gcc
 
-CFLAGS := -Wall -I./include -lSDL2 -lGL
+CFLAGS := -Wall -I$(OUT) -I./include -lSDL2 -lGL
 
 TARGET := $(BIN)/sdl/$(NAME)
 
@@ -15,7 +19,7 @@ SDL_SRCS := $(shell ls sdl/*.c)
 NES_OBJS := $(patsubst %,$(OBJ)/%.o,$(NES_SRCS))
 SDL_OBJS := $(patsubst %,$(OBJ)/%.o,$(SDL_SRCS))
 
-sdl: $(TARGET)
+sdl: .config $(OUT)/auto/config.h $(TARGET)
 
 $(BIN)/sdl/$(NAME): $(NES_OBJS) $(SDL_OBJS)
 	@mkdir -p $(dir $@)
@@ -33,5 +37,16 @@ $(OBJ)/%.c.o: %.c
 	@mkdir -p $(dir $@)
 	$(CC) -c $< -o $@ $(CFLAGS)
 
+menuconfig:
+	menuconfig
+
+$(OUT)/auto/config.h:
+	echo $@
+	@mkdir -p $(dir $@)
+	genconfig
+
 clean:
 	rm -rf build
+
+clean-config:
+	rm -rf .config .config.old

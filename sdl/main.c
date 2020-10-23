@@ -1,4 +1,5 @@
 #include <SDL2/SDL.h>
+#include "auto/config.h"
 
 
 int main(void)
@@ -15,7 +16,9 @@ int main(void)
 	//unsigned int lastTicks  = 0;
 	//unsigned int deltaTicks = 0;
 
-	if (SDL_CreateWindowAndRenderer(256*3, 240*3, SDL_WINDOW_OPENGL, &window, &renderer))
+	if (SDL_CreateWindowAndRenderer(
+				256*CONFIG_DISPLAY_SCALE, 240*CONFIG_DISPLAY_SCALE,
+				SDL_WINDOW_OPENGL, &window, &renderer))
 	{
 		return 2;
 	}
