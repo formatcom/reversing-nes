@@ -1,6 +1,12 @@
 ## References
 ~~~
-- REF: https://github.com/LIJI32/SameBoy (debugger)
+- REF [1]: https://github.com/LIJI32/SameBoy (debugger)
+~~~
+
+## Working
+~~~
+ - CLI interfaces
+ - Debugger based on SameBoy REF: [1]
 ~~~
 
 ## Requirements
