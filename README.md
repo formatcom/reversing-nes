@@ -15,7 +15,7 @@
 	- sdl2
 	- python 2/3
 
-## Install requirements
+## Install requirements for python
 ~~~
 $ pip install -r requirements.txt
 ~~~
