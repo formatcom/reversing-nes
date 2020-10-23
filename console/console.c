@@ -117,7 +117,6 @@ void CON_breakline()
 	{
 		CON_clean();
 	}
-
 }
 
 char * CON_capture()

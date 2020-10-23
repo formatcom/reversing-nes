@@ -1,4 +1,7 @@
 ## References
+~~~
+- REF: https://github.com/LIJI32/SameBoy (debugger)
+~~~
 
 ## Requirements
 	- gcc
