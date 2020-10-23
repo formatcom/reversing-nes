@@ -5,9 +5,13 @@
 	- sdl2
 	- python 2/3
 
-## Build
+## Install requirements
 ~~~
 $ pip install -r requirements.txt
+~~~
+
+## Build
+~~~
 $ make menuconfig
 $ make
 ~~~
