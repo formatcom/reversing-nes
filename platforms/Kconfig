@@ -1,0 +1,7 @@
+menu "Platform Configuration"
+
+config PLATFORM_SRC
+	string "select platform"
+	default "sdl"
+
+endmenu

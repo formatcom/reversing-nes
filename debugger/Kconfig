@@ -1,0 +1,7 @@
+menu "Debugger Configuration"
+
+config DEBUGGER_SRC
+	string "select support"
+	default "dummy"
+
+endmenu

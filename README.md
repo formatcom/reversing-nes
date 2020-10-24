@@ -22,6 +22,6 @@ $ pip install -r requirements.txt
 
 ## Build
 ~~~
-$ make menuconfig
+$ menuconfig
 $ make
 ~~~

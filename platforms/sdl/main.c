@@ -1,6 +1,8 @@
+#include <stdio.h>
 #include <string.h>
 #include <SDL2/SDL.h>
 #include "console/console.h"
+#include "debugger/debugger.h"
 #include "auto/config.h"
 
 
@@ -47,6 +49,8 @@ int main(void)
 				printf("bye\n\r");
 				break;
 			}
+
+			debugger_execute_command(NULL, buf);
 		}
 
 		if (event.type == SDL_QUIT) {

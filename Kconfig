@@ -1,5 +1,9 @@
 mainmenu "Reversing Nes configuration"
 
+config APP_NAME
+	string "Change name to binary output"
+	default "reversing-nes"
+
 menu "Gui"
 
 config DISPLAY_SCALE
@@ -9,5 +13,7 @@ config DISPLAY_SCALE
 endmenu
 
 source "console/Kconfig"
+source "debugger/Kconfig"
 source "nes/Kconfig"
+source "platforms/Kconfig"
 
