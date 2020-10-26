@@ -16,7 +16,7 @@ TARGET       := $(BIN)/${CONFIG_PLATFORM_SRC}/$(CONFIG_APP_NAME)
 NES_SRCS       := $(shell ls nes/*.c)
 CON_SRCS       := $(shell ls console/*.c)
 PLATFORM_SRCS  := $(shell ls platforms/${CONFIG_PLATFORM_SRC}/*.c)
-DEBUGGER_SRCS  := $(shell ls debugger/*.c debugger/supports/${CONFIG_DEBUGGER_SRC}/*.c)
+DEBUGGER_SRCS  := $(shell ls debugger/supports/${CONFIG_DEBUGGER_SRC}/*.c debugger/*.c)
 
 NES_OBJS       := $(patsubst %,$(OBJ)/%.o,$(NES_SRCS))
 CON_OBJS       := $(patsubst %,$(OBJ)/%.o,$(CON_SRCS))

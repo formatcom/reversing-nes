@@ -9,14 +9,14 @@ typedef int debugger_command_imp_t(void *core,
 									char *modifiers,
 									const struct debugger_command_s *command);
 
-typedef char *debugger_completer_imp_t(void *core,
+typedef char * debugger_completer_imp_t(void *core,
 										const char *string,
 										void * context);
 
 typedef struct debugger_command_s {
 	const char                * command;
 	uint8_t                     min_length;
-	debugger_completer_imp_t  * implementation;
+	debugger_command_imp_t    * implementation;
 	const char                * help_string;       // Null if should not appear in help
 	const char                * arguments_format;  // For usage message
 	const char                * modifiers_format;  // For usage message
